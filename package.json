@@ -6,9 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-spring/web": "^9.5.5",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-tinder-card": "^1.6.1"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
