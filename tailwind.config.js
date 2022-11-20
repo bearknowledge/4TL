@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {},
-  },
+  
   screens: {
     mobile: '300px',
 
@@ -19,5 +19,6 @@ module.exports = {
 
     desktop: '1400px',
   },
+},
   plugins: [],
 }
