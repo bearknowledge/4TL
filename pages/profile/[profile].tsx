@@ -67,7 +67,7 @@ useEffect(() => {
 
         <div>
           <h1 className=" my-2">Telegram</h1>
-          <h2 className="opacity-50">@zmill28</h2>
+          <h2 className="opacity-50">None</h2>
         </div>
       </div>
     </div>
