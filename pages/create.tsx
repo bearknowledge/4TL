@@ -84,7 +84,7 @@ return new Promise((resolve, reject) => {
   </button>
         </form>
         
-        <a className="underline pt-6" href='/login'>Login</a>
+        <a className="underline pt-6" href='/'>Login</a>
     </div>
     </div>
   )
