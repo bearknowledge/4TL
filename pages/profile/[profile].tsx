@@ -33,6 +33,10 @@ useEffect(() => {
   setProfile(profile.profile[0])
 }, [profile])
 
+
+//Put a back button
+
+
   return (
     <div className="flex min-h-screen flex-col">
       <a href="/dashboard/100" className="text-[40px] font-bold p-6 w-fit">Profile</a>

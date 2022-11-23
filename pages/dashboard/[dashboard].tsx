@@ -51,7 +51,7 @@ useEffect(() => {
     <div className="flex flex-col mobile:h-screen laptop:h-fit relative ">
    
     
-      <span className="bg-[black] mobile:h-[300px] laptop:h-[375px] laptop:full relative flex flex-col justify-around">
+      <span className="bg-[url('/man1.jpeg')] bg-center bg-contain  mobile:h-[300px] laptop:h-[375px] laptop:full relative flex flex-col justify-around">
    
       <div className="flex flex-row mobile:w-[90vw] mobile:mx-auto items-center justify-between">
       <h1 className="font-bold laptop:text-[40px] text-white">4TL Directory</h1>
@@ -60,7 +60,7 @@ useEffect(() => {
 <img className="w-[40px] h-[40px] rounded-full" src={profData?.picture}></img>
 </a>
 <form  method="post" action="/api/logout">
-      <button type="submit" className="ml-3 bg-[white] w-[70px] h-[35px] text-black justify-center items-center flex rounded-lg"> Logout</button>
+      <button type="submit" className="ml-3 bg-[black] w-[70px] h-[35px] text-white justify-center items-center flex rounded-lg"> Logout</button>
 </form>
 </div>
       </div>
