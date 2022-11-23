@@ -19,13 +19,12 @@ const verify = req.cookies.get("Autherized")
 
 
   if (!verify && url.includes("/dashboard")) {
-    return NextResponse.redirect("http://localhost:3000/")
+    return NextResponse.redirect("https://4tl.vercel.app/")
   }
   if (!verify && url.includes("/profile")) {
-    return NextResponse.redirect("http://localhost:3000/")
+    return NextResponse.redirect("https://4tl.vercel.app/")
   }
-  if(verify && url === "http://localhost:3000/" || verify && url === "http://localhost:3000/" ) {
-
+  if(verify && url === "https://4tl.vercel.app/") {
     return NextResponse.redirect('http://localhost:3000/dashboard/' + rString)
   }
 
