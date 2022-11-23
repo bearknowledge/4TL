@@ -25,7 +25,7 @@ const verify = req.cookies.get("Autherized")
     return NextResponse.redirect("https://4tl.vercel.app/")
   }
   if(verify && url === "https://4tl.vercel.app/") {
-    return NextResponse.redirect('http://localhost:3000/dashboard/' + rString)
+    return NextResponse.redirect('https://4tl.vercel.app/dashboard/' + rString)
   }
 
   return response;
