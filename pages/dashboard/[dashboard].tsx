@@ -1,16 +1,59 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { Nav } from "../../components/nav";
+import clientPromise from "../../lib/mongodb";
+import { useState, useEffect } from "react";
 
-const Dashboard: NextPage = () => {
+
+
+export const getServerSideProps: GetServerSideProps = async ({req}) => {
+
+  const {Autherized} = req.cookies
+
+  const client = await clientPromise;
+  const db = client.db("404Direct");
+
+  const profile = await db
+    .collection("accounts")
+    .find({ token: Autherized })
+    .toArray();
+
+  return {
+    props: {
+      profile: JSON.parse(JSON.stringify(profile))
+    },
+  };
+};
+
+
+
+
+const Dashboard: NextPage = (profile: any) => {
+
+  function randomString(length: number, chars: any) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+  }
+  
+  const rString: String = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+  
+  const href: string = "/profile/" + rString
+  
+  const [profData, setProfile] = useState(profile.profile[0])
+
+useEffect(() => {
+  setProfile(profile.profile[0])
+}, [profile])
+
   return (
     <div className="flex flex-col h-screen relative p-6">
     <div className="flex flex-row w-full items-center justify-between">
       <h1 className="text-[40px] font-bold">4TL Directory</h1>
 <div className="flex flex-row items-center">
-<a href="/profile/100">
-<img className="w-[40px] h-[40px] rounded-full" src="/placeholder.svg"></img>
+<a href={href}>
+<img className="w-[40px] h-[40px] rounded-full" src={profData?.picture}></img>
 </a>
 <form method="post" action="/api/logout">
       <button type="submit" className="ml-3 bg-[black] w-[70px] h-[35px] text-white justify-center items-center flex rounded-lg"> Logout</button>

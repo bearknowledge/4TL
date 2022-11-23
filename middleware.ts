@@ -19,14 +19,14 @@ const verify = req.cookies.get("Autherized")
 
 
   if (!verify && url.includes("/dashboard")) {
-    return NextResponse.redirect("http://localhost:3000/login")
+    return NextResponse.redirect("http://localhost:3000/")
   }
   if (!verify && url.includes("/profile")) {
-    return NextResponse.redirect("http://localhost:3000/login")
+    return NextResponse.redirect("http://localhost:3000/")
   }
-  if(verify && url === "http://localhost:3000/login") {
+  if(verify && url === "http://localhost:3000/" || verify && url === "http://localhost:3000/" ) {
 
-    return NextResponse.redirect('http://localhost:3000/dashboard/300')
+    return NextResponse.redirect('http://localhost:3000/dashboard/' + rString)
   }
 
   return response;

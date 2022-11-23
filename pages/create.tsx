@@ -1,9 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import { Nav } from '../components/nav'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import { Nav } from '../components/nav';
 import { useState } from "react";
 import Link from 'next/link';
+import { setEnvironmentData } from 'worker_threads';
 
 
 
@@ -11,10 +12,28 @@ const Create: NextPage = () => {
 
 
   const [file, setFile] = useState("/lady2.jpeg");
+  // const [data, setData] = useState("" as any);
 
-  function handleChange(e: any) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+  async function handleChange(e: any) {
+    const file = URL.createObjectURL(e.target.files[0]);
+    const picture = e.target.files[0]
+    setFile(file);
+    const imgStr: string = String(await converter(picture));
+    (document.getElementById('picture') as HTMLInputElement).value = imgStr
+}
+
+const converter = (file: any) => {
+return new Promise((resolve, reject) => {
+  const fileReader = new FileReader();
+  fileReader.readAsDataURL(file);
+
+  fileReader.onload = () => {
+    resolve(fileReader.result);
+  }
+  fileReader.onerror = (error) => {
+    reject(error);
+  }
+})
 }
 
   return (
@@ -22,12 +41,16 @@ const Create: NextPage = () => {
     <Link href="/login" className='text-[40px] font-bold px-4'>404 Directory</Link>
     <div className="flex flex-col h-fit justify-center items-center">
       
-        <form action='/api/create' method='post' className='flex flex-col mobile:w-[80%] tablet:w-[60%] laptop:w-[30%]'>
+        <form id="create" action='/api/create' method='post' className='flex flex-col mobile:w-[80%] tablet:w-[60%] laptop:w-[30%]'>
         <div className='flex flex-row justify-center items-center'>
-        {/* <img src={file} className='rounded-full h-[100px] w-[100px]'/>
+        <img src={file} className='rounded-full h-[100px] w-[100px]'/>
         
-        <input type="file" onChange={handleChange} className='w-fit mt-2 ml-4'
-  ></input> */}
+        <input name="input" type="file" onChange={handleChange} className='w-fit mt-2 ml-4'
+  ></input>
+
+       <input id='picture' name="picture" type="text" className='hidden'
+  ></input>
+
   </div>
         <label className='mt-6'>Name</label>
         <input name="name" className='rounded-md  py-2 px-2 border mt-2'

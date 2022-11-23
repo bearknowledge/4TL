@@ -8,7 +8,6 @@ function randomString(length: number, chars: any) {
 }
 
 
-
 export default async function handler(req: any, res: any) {
   applyApiCookie(req, res)
 
@@ -21,8 +20,6 @@ export default async function handler(req: any, res: any) {
 if (getReferral.length == 0) {
   res.json({status: "incorrect referral code"})
 } 
-
-
  else if (getReferral[0].uses == undefined) {
 
   const checkProfile = await db.collection("accounts").find(
@@ -35,11 +32,14 @@ if (getReferral.length == 0) {
  await db.collection("accounts").updateOne({referral: req.body.referral}, {
   $set: {uses: 1}})
 
+console.log(req.body)
+
 
 const rString = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 const token = randomString(24, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
   req.body.referral = rString
   req.body.token = token
+  delete req.body.input
    await db.collection("accounts").insertOne(req.body);
    res.cookie("Autherized", token, {path:'/'})
 
