@@ -37,21 +37,18 @@ return new Promise((resolve, reject) => {
 }
 
   return (
-    <>
-    <Link href="/login" className='text-[40px] font-bold px-4'>404 Directory</Link>
+    <div className='p-3'>
+    <Link href="/login" className='laptop:text-[40px] font-bold'>404 Directory</Link>
     <div className="flex flex-col h-fit justify-center items-center">
-      
-        <form id="create" action='/api/create' method='post' className='flex flex-col mobile:w-[80%] tablet:w-[60%] laptop:w-[30%]'>
-        <div className='flex flex-row justify-center items-center'>
-        <img src={file} className='rounded-full h-[100px] w-[100px]'/>
-        
+    <img src={file} className='rounded-full h-[75px] w-[75px] mt-6'/>
+        <form id="create" action='/api/create' method='post' className='flex mt-3 flex-col mobile:w-[80%] tablet:w-[60%] laptop:w-[30%]'>
+       
         <input name="input" type="file" onChange={handleChange} className='w-fit mt-2 ml-4'
   ></input>
 
        <input id='picture' name="picture" type="text" className='hidden'
   ></input>
 
-  </div>
         <label className='mt-6'>Name</label>
         <input name="name" className='rounded-md  py-2 px-2 border mt-2'
   placeholder='Name'
@@ -61,22 +58,23 @@ return new Promise((resolve, reject) => {
         <input name="email" className='rounded-md  py-2 px-2 border mt-2'
   placeholder='Email'
   ></input>
-  <label className='mt-3'>LinkedIn</label>
-        <input name="linkedin" className='rounded-md  py-2 px-2 border mt-2'
-  placeholder='Email'
+
+<label className='mt-3'>Password</label>
+             <input name="password" className='rounded-md py-2 px-2 border mt-2'
+  placeholder='Password'
   ></input>
+
+
+<label className='mt-3'>Company</label>
+        <input name="company" className='rounded-md  py-2 px-2 border mt-2'
+  placeholder='Company'
+  ></input>
+
   <label className='mt-3'>Industry</label>
         <input name="industry" className='rounded-md  py-2 px-2 border mt-2'
   placeholder='Drop Down'
   ></input>
-       <label className='mt-3'>Role</label>
-        <input name="role" className='rounded-md  py-2 px-2 border mt-2'
-  placeholder='Role'
-  ></input>
-  <label className='mt-3'>Password</label>
-             <input name="password" className='rounded-md py-2 px-2 border mt-2'
-  placeholder='Password'
-  ></input>
+
   <label className='mt-3'>Referral</label>
              <input name="referral" className='rounded-md py-2 px-2 border mt-2'
   placeholder='Referral'
@@ -88,7 +86,7 @@ return new Promise((resolve, reject) => {
         
         <a className="underline pt-6" href='/login'>Login</a>
     </div>
-    </>
+    </div>
   )
 }
 
