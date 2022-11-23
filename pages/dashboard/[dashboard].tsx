@@ -48,70 +48,90 @@ useEffect(() => {
 }, [profile])
 
   return (
-    <div className="flex flex-col h-screen relative p-6">
-    <div className="flex flex-row w-full items-center justify-between">
-      <h1 className="text-[40px] font-bold">4TL Directory</h1>
+    <div className="flex flex-col mobile:h-screen laptop:h-fit relative ">
+   
+    
+      <span className="bg-[black] mobile:h-[300px] laptop:h-[375px] laptop:full relative flex flex-col justify-around">
+   
+      <div className="flex flex-row mobile:w-[90vw] mobile:mx-auto items-center justify-between">
+      <h1 className="font-bold laptop:text-[40px] text-white">4TL Directory</h1>
 <div className="flex flex-row items-center">
 <a href={href}>
 <img className="w-[40px] h-[40px] rounded-full" src={profData?.picture}></img>
 </a>
-<form method="post" action="/api/logout">
-      <button type="submit" className="ml-3 bg-[black] w-[70px] h-[35px] text-white justify-center items-center flex rounded-lg"> Logout</button>
+<form  method="post" action="/api/logout">
+      <button type="submit" className="ml-3 bg-[white] w-[70px] h-[35px] text-black justify-center items-center flex rounded-lg"> Logout</button>
 </form>
 </div>
       </div>
-    
-      <form>
+      <form className="flex flex-row justify-center">
         <input
-          className="rounded-md w-1/3 py-2 px-2 border"
+          className="rounded-md mobile:w-[90vw] laptop:w-[500px] py-2 px-2 border"
           placeholder="Search for a name, company, or role"
         ></input>
       </form>
-      <h1 className="text-[30px] font-semibold  pt-6">Discover</h1>
-      <div className="grid grid-cols-3 gap-5 justify-center h-fit w-full">
+          <span></span>
+          <h1 className="absolute left-[6%] bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
+          Event 1
+          </h1>
+         
+          </span>
+
+       
+     <div className="p-7">
+      <h1 className="text-[30px] font-semibold  mt-3">Discover</h1>
+      <div className="grid grid-cols-3 gap-y-7 gap-x-3 justify-center h-fit w-full mt-3">
   {/*  Put Images as background  */}
-        <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+        <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px] relative flex flex-row justify-center">
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Artist/Creator
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Developer
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px]  laptop:text-lg">
           Education
           </h1></span>
 
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Finance & Defi
 
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Entrepreneur
 
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-center text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Business Management
 
           </h1></span>
 
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           All of the above
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Still figuring it out
           </h1></span>
-          <span className="bg-[black] rounded-lg h-[200px] relative flex flex-row justify-center">
-          <h1 className="absolute bottom-[10%] text-white font-semibold text-lg">
+          <span className="bg-[black] rounded-lg mobile:h-[100px] mobile:w-[100px] tablet:h-[150px] tablet:w-full laptop:h-[200px]  relative flex flex-row justify-center">
+        
+          <h1 className="absolute bottom-[10%] text-white font-semibold mobile:text-[10px] laptop:text-lg">
           Other
           </h1></span>
       </div>
+    </div>
     </div>
   );
 };
