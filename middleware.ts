@@ -21,9 +21,9 @@ const verify = req.cookies.get("Autherized")
   if (!verify && url.includes("/dashboard")) {
     return NextResponse.redirect("https://4tl.vercel.app/")
   }
-  // if (!verify && url.includes("/profile")) {
-  //   return NextResponse.redirect("https://4tl.vercel.app/")
-  // }
+  if (!verify && url.includes("/profile")) {
+    return NextResponse.redirect("https://4tl.vercel.app/")
+  }
   if(verify && url === "https://4tl.vercel.app/") {
     return NextResponse.redirect('https://4tl.vercel.app/dashboard/' + rString)
   }
