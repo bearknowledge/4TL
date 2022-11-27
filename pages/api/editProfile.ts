@@ -14,8 +14,9 @@ export default async function handler(req: any, res: any) {
     if (req.body.role != undefined) {
       await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {role: req.body.role}})  
-
-    console.log(res.status(200))
+        console.log(res.status(200))
+        res.status(200)
+   
 
 
     } else if (req.body.telegram != undefined) {
