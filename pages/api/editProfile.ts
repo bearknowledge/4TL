@@ -14,7 +14,7 @@ export default async function handler(req: any, res: any) {
     if (req.body.role != undefined) {
       await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {role: req.body.role}})  
-         res.json()
+         res.json({status:"success"})
    
 
 
