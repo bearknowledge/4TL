@@ -4,7 +4,7 @@ import {applyApiCookie} from 'next-universal-cookie';
 export default async function handler(req: any, res: any) {
   applyApiCookie(req, res)
   try {
-    res.clearCookie("Autherized1")
+    res.clearCookie("Autherized")
     res.redirect("/")
     } 
    catch {
