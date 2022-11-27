@@ -52,8 +52,8 @@ useEffect(() => {
    
     
       <span className="bg-[url('/man1.jpeg')] bg-center bg-contain  mobile:h-[300px] laptop:h-[375px] laptop:full relative flex flex-col justify-around">
-   
-      <div className="flex flex-row mobile:w-[90vw] mobile:mx-auto items-center justify-between">
+      
+      <div className="flex flex-row mobile:w-[90vw] mobile:mx-auto items-center justify-between ">
       <h1 className="font-bold laptop:text-[40px] text-white">4TL Directory</h1>
 <div className="flex flex-row items-center">
 <a href={href}>

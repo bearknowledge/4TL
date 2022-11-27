@@ -26,13 +26,16 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
 const Profile: NextPage = (profile: any) => {
 const [profData, setProfile] = useState(profile.profile[0])
-
+const [Edit, setEdit] = useState(false)
 
 
 useEffect(() => {
   setProfile(profile.profile[0])
 }, [profile])
 
+
+useEffect(() => {
+}, [Edit])
 
 //Put a back button
 
@@ -46,44 +49,135 @@ useEffect(() => {
         <h2 className="opacity-50">{profData?.role} - {profData?.company}</h2>
       </div>
 
-      <div className="divide-y flex flex-col px-8 pt-4">
-          <div>
+      <form action='/api/editProfile' method='post' className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto ">
+          <div className="flex flex-row items-center justify-between">
+            <span>
             <h1 className="my-2">Company</h1>
             <h2 className="opacity-50 pb-2">{profData?.company}</h2>
+
+            </span>
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
           </div>
 
-          <div >
+          <div className="flex flex-row items-center justify-between">
+          <span>
             <h1 className="my-2">Industry</h1>
             <h2 className="opacity-50 pb-2">{profData?.industry}</h2>
+            </span>
+
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
           </div>
 
 {/* Add In these 2. They are accessory but not essential to make the app function */}
-          {/* <label className='mt-3'>LinkedIn</label>
+        {/* <label className='mt-3'>LinkedIn</label>
         <input name="linkedin" className='rounded-md  py-2 px-2 border mt-2'
   placeholder='LinkedIn'
-  ></input>
-
-<label className='mt-3'>Role</label>
-        <input name="Role" className='rounded-md  py-2 px-2 border mt-2'
-  placeholder='Role'
   ></input> */}
 
-        <div>
-          <h1 className="my-2">Email</h1>
-          <h2 className="opacity-50 pb-2">{profData?.email}</h2>
-        </div>
 
 
-        <div>
-          <h1 className=" my-2">Referral Code</h1>
-          <h2 className="opacity-50 pb-2">{profData?.referral}</h2>
-        </div>
+<div className="flex flex-row items-center justify-between">
+          <span>
+            <h1 className="my-2">Email</h1>
+            <h2 className="opacity-50 pb-2">{profData?.email}</h2>
+            </span>
 
-        <div>
-          <h1 className=" my-2">Telegram</h1>
-          <h2 className="opacity-50">None</h2>
-        </div>
-      </div>
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
+          </div>
+
+     
+<div className="flex flex-row items-center justify-between">
+          <span>
+            <h1 className="my-2">Referral Code</h1>
+            <h2 className="opacity-50 pb-2">{profData?.referral}</h2>
+            </span>
+
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
+          </div>
+
+          <div className="flex flex-row items-center justify-between">
+          <span>
+            <h1 className="my-2">LinkedIn</h1>
+            {profData.linkedin == undefined ? 
+            <h2 className="opacity-50 pb-2">Add your LinkedIn</h2> :
+            <h2 className="opacity-50 pb-2">{profData?.linkedin}</h2>
+}
+            </span>
+
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
+          </div>
+
+          <div className="flex flex-row items-center justify-between">
+          <span>
+            <h1 className="my-2">Role</h1>
+            { Edit === true ?
+            <>
+            <input name="role" className='rounded-md  py-2 px-2 border mb-2'
+      placeholder='Add your role'
+      ></input>
+      </>  :
+            profData.role == undefined ? 
+            <h2 className="opacity-50 pb-2">Add your role</h2> :
+            <h2 className="opacity-50 pb-2">{profData?.role}</h2>
+            }
+            </span>
+
+            <span>
+              { Edit === true ?
+              <div className="flex flex-row">
+               <button className="mr-3" onClick={() => {setEdit(false)}}>
+               <img className='w-5' src="/x.svg"/>
+             </button>
+
+               <button type="submit">
+               <img className='w-5' src="/check.svg"/>
+             </button> 
+             </div>
+             :
+              <button onClick={() => {setEdit(true)}}>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+}
+            </span>
+          </div>
+
+      
+<div className="flex flex-row items-center justify-between">
+          <span>
+            <h1 className="my-2">Telegram</h1>
+            {profData.telegram == undefined ?
+            <h2 className="opacity-50 pb-2">Add your telegram</h2> :
+            <h2 className="opacity-50 pb-2">{profData?.telegram}</h2>
+}
+            </span>
+
+            <span>
+              <button>
+                <img className='w-5' src="/edit.svg"/>
+              </button>
+            </span>
+          </div>
+      </form>
     </div>
   );
 };

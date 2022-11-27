@@ -13,7 +13,7 @@ export default async function handler(req: any, res: any) {
 
     if (login.length != 0 ) {
 
-    res.cookie("Autherized",login[0].token, {path:'/'})
+    res.cookie("Autherized1",login[0].token, {path:'/'})
     res.redirect("/dashboard/" + login[0].token)
       
 
