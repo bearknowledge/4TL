@@ -52,7 +52,7 @@ const Profile: NextPage = (profile: any) => {
       <form
         action="/api/editProfile"
         method="post"
-        className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto pb-8 "
+        className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto pb-12 "
       >
         <div className="flex flex-row items-center justify-between">
           <span>
