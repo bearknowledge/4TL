@@ -37,7 +37,7 @@ const Profile: NextPage = (profile: any) => {
   //Put a back button
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col ">
       <a href="/dashboard/100" className="text-[40px] font-bold p-6 w-fit">
         Profile
       </a>
@@ -52,7 +52,7 @@ const Profile: NextPage = (profile: any) => {
       <form
         action="/api/editProfile"
         method="post"
-        className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto "
+        className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto pb-8 "
       >
         <div className="flex flex-row items-center justify-between">
           <span>
