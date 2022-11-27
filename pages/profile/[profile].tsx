@@ -42,6 +42,8 @@ const Profile: NextPage = (profile: any) => {
         Profile
       </a>
       <div className="flex flex-col justify-center items-center text-xl font-bold">
+
+      {/* Add image edit as well  // First CLick shows "view full size", or "change image" buttons*/}
         <img className="rounded-full h-[200px]" src={profData?.picture} />
         <h1 className="mt-5">{profData?.name}</h1>
         <h2 className="opacity-50">
@@ -52,7 +54,7 @@ const Profile: NextPage = (profile: any) => {
       <form
         action="/api/editProfile"
         method="post"
-        className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto pb-12 "
+        className="divide-y flex flex-col px-8 pt-4 mobile:w-full laptop:w-[70vw] laptop:mx-auto pb-12 "
       >
         <div className="flex flex-row items-center justify-between">
           <span>
