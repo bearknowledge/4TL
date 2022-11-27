@@ -41,7 +41,7 @@ const token = randomString(24, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL
   req.body.token = token
   delete req.body.input
    await db.collection("accounts").insertOne(req.body);
-   res.cookie("Autherized1", token, {path:'/'})
+   res.cookie("Autherized", token, {path:'/'})
 
     res.redirect("/dashboard/" + token)
 

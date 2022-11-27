@@ -1,23 +1,27 @@
 import clientPromise from "../../lib/mongodb"
 import {applyApiCookie} from 'next-universal-cookie';
 
-
+function randomString(length: number, chars: any) {
+  var result = '';
+  for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+  return result;
+}
 
 export default async function handler(req: any, res: any) {
+  const rString = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
   applyApiCookie(req, res)
   res.clearCookie("Autherized", {path:'/api'})
-
   const client = await clientPromise
   const db = client.db('404Direct')
+  
   try {
 
     if (req.body.role != undefined) {
       await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {role: req.body.role}})  
-         res.json({status:"success"})
+        res.redirect("/profile/" + rString)
+
    
-
-
     } else if (req.body.telegram != undefined) {
       await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {telegram: req.body.telegram}})

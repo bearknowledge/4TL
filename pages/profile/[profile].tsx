@@ -50,7 +50,6 @@ const Profile: NextPage = (profile: any) => {
       </div>
 
       <form
-        target="hiddenFrame"
         action="/api/editProfile"
         method="post"
         className="divide-y flex flex-col px-8 pt-4 w-[70vw] mx-auto "
@@ -337,7 +336,6 @@ const Profile: NextPage = (profile: any) => {
           </span>
         </div>
       </form>
-      <iframe name="hiddenFrame" width="0" height="0" className="hidden"></iframe>
     </div>
   );
 };
