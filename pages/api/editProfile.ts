@@ -15,21 +15,30 @@ export default async function handler(req: any, res: any) {
       await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {role: req.body.role}})  
 
-  console.log(req.cookies.Autherized1)
-  res.json({status:"working"})
+    console.log(res.status(200))
+
 
     } else if (req.body.telegram != undefined) {
-      await db.collection("accounts").updateOne({token: req.body.referral}, {
+      await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
         $set: {telegram: req.body.telegram}})
   
     } else if (req.body.email != undefined) {
+      await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
+        $set: {email: req.body.email}})
 
     } else if (req.body.company != undefined) {
+      await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
+        $set: {company: req.body.company}})
+
 
     } else if (req.body.industry != undefined) {
+      await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
+        $set: {industry: req.body.industry}})
+
 
     } else if (req.body.linkedin != undefined) {
-
+      await db.collection("accounts").updateOne({token: req.cookies.Autherized}, {
+        $set: {linkedin: req.body.linkedin}})
     } 
 
   }
