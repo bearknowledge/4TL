@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { Nav } from "./api/search";
+import  Nav from "./api/search";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import clientPromise from "../lib/mongodb";
