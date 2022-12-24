@@ -32,7 +32,7 @@ const Industry: NextPage = (profile: any) => {
         <form className="flex flex-row justify-center">
           <input
             onKeyUp={(e) => {
-              searchFunction(e);
+              // searchFunction(e);
             }}
             className="rounded-md mobile:w-[90vw] laptop:w-[500px] py-2 px-2 border"
             placeholder="Search for a name, company, or role"
