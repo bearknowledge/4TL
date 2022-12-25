@@ -93,10 +93,11 @@ const Dashboard: NextPage = (profile: any) => {
         <form  className="flex flex-row justify-center">
           <div className="relative bg-white rounded-md mobile:w-[90vw] laptop:w-[500px] border">
           <input
-            onFocus={() => setSearching(true)}
-            onBlur={() => {
-              setSearchResult([])
-              setSearching(false)}}
+            // onFocus={() => setSearching(true)}
+            //  onBlur={() => {
+            // //   setSearchResult([])
+            // // }}
+            // setSearching(false)}}
             onKeyUp={(e) => {
               search(e)
             }}
@@ -104,16 +105,14 @@ const Dashboard: NextPage = (profile: any) => {
             className="w-full p-3 focus:outline-none"
             />
             
-           { searching ?
-           searchResult.length == 0 ? <></> :
-           <ul className="absolute left-0 bg-white z-20 flex flex-col p-5 divide-y mobile:w-[90vw] laptop:w-[500px]">
+           { 
+           <ul className={searchResult.length == 0 || searching == false ? "hidden":"absolute left-0 bg-white z-20 flex flex-col p-5 divide-y mobile:w-[90vw] laptop:w-[500px]"}>
            {searchResult?.map((el: any) => {
-             return <li><a className="flex flex-row items-center" href="www.google.com"> <img className="rounded-full w-[45px] mr-[10px] my-[5px]" src={el.picture}/>{el.name}</a></li>
+            console.log(el)
+             return <li><Link className="flex flex-row items-center" href={{ pathname: '/pubprofile/[referral]', query: {referral:el.referral}}}> <img className="rounded-full w-[45px] mr-[10px] my-[5px]" src={el.picture}/>{el.name}</Link></li>
            }) 
            }
            </ul> 
-           :
-          <></>
         }
         </div>
         </form>
