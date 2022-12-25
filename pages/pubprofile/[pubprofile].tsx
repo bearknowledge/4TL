@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const PubProfile: NextPage = () => {
   const router = useRouter();
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResult, setSearchResult] = useState([] as any);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
