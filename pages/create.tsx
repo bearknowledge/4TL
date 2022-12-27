@@ -34,7 +34,7 @@ const Create: NextPage = () => {
   return (
     <div className="p-3">
       <Link href="/login" className="laptop:text-[40px] font-bold">
-        404 Directory
+        4TL Directory
       </Link>
       <div className="flex flex-col h-fit justify-center items-center">
         <img src={file} className="rounded-full h-[75px] w-[75px] mt-6" />
@@ -56,6 +56,7 @@ const Create: NextPage = () => {
             name="picture"
             type="text"
             className="hidden"
+            required
           ></input>
 
           <label className="mt-6">Name</label>
@@ -63,6 +64,7 @@ const Create: NextPage = () => {
             name="name"
             className="rounded-md  py-2 px-2 border mt-2"
             placeholder="Name"
+            required
           ></input>
 
           <label className="mt-3">Email</label>
@@ -70,6 +72,7 @@ const Create: NextPage = () => {
             name="email"
             className="rounded-md  py-2 px-2 border mt-2"
             placeholder="Email"
+            required
           ></input>
 
           <label className="mt-3">Password</label>
@@ -77,6 +80,8 @@ const Create: NextPage = () => {
             name="password"
             className="rounded-md py-2 px-2 border mt-2"
             placeholder="Password"
+            type="password"
+            required
           ></input>
 
           <label className="mt-3">Company</label>
@@ -84,20 +89,34 @@ const Create: NextPage = () => {
             name="company"
             className="rounded-md  py-2 px-2 border mt-2"
             placeholder="Company"
+            required
           ></input>
 
           <label className="mt-3">Industry</label>
-          <input
+          <select
             name="industry"
             className="rounded-md  py-2 px-2 border mt-2"
             placeholder="Drop Down"
-          ></input>
+            required
+          >
+          <option value="Artist/Creator">Artist/Creator</option>
+          <option value="Finance & Defi">Finance & Defi</option>
+          <option value="Developer">Developer</option>
+          <option value="Education">Education</option>
+          <option value="Entreprenuer">Entreprenuer</option>
+          <option value="Business Management">Business Management</option>
+          <option value="All of the above">All of the above</option>
+          <option value="Still Figuring it out">Still Figuring it out</option>
+          <option>Other</option>
+
+          </select>
 
           <label className="mt-3">Referral</label>
           <input
             name="referral"
             className="rounded-md py-2 px-2 border mt-2"
             placeholder="Referral"
+            required
           ></input>
           <button
             type="submit"
