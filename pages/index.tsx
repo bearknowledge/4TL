@@ -51,7 +51,7 @@ const Login: NextPage = (token: any) => {
         method="post"
         className="flex flex-col mobile:w-[80%] tablet:w-[60%] laptop:w-[30%]"
       >
-        <h1 className="text-2xl font-bold">404 Directory</h1>
+        <h1 className="text-2xl font-bold">4TL Directory</h1>
         <label className="mt-6">Email</label>
         <input
           name="email"
